@@ -8,6 +8,12 @@
     box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 :root {
     --color-primary: #32373c;
     --color-text: #333;
@@ -31,6 +37,8 @@ body {
     line-height: 1.8;
     background-color: var(--color-bg);
     overflow-x: hidden;
+    max-width: 100vw;
+    position: relative;
 }
 
 img {
@@ -528,6 +536,8 @@ ul {
     transition: var(--transition);
     opacity: 0;
     transform: translateY(50px);
+    writing-mode: horizontal-tb;
+    direction: ltr;
 }
 
 .style-card.visible {
@@ -560,20 +570,85 @@ ul {
 .style-content {
     padding: 30px;
     background-color: white;
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .style-content {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .style-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .style-content {
+        padding: 15px;
+    }
 }
 
 .style-title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: 1px;
     margin-bottom: 15px;
     color: var(--color-primary);
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.5;
+    writing-mode: horizontal-tb !important;
+    direction: ltr !important;
+}
+
+@media (max-width: 900px) {
+    .style-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .style-title {
+        font-size: 15px;
+    }
 }
 
 .style-description {
     font-size: 14px;
     line-height: 1.8;
     color: var(--color-text-light);
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    writing-mode: horizontal-tb !important;
+    direction: ltr !important;
+}
+
+@media (max-width: 900px) {
+    .style-description {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+}
+
+@media (max-width: 600px) {
+    .style-description {
+        font-size: 12px;
+        line-height: 1.6;
+    }
 }
 
 /* ==================== */
@@ -590,7 +665,14 @@ ul {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .work-card {
@@ -604,6 +686,8 @@ ul {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
 }
 
 .work-card.visible {
@@ -639,46 +723,117 @@ ul {
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
+    writing-mode: horizontal-tb;
+    direction: ltr;
+}
+
+@media (max-width: 900px) {
+    .work-content {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .work-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .work-content {
+        padding: 15px;
+    }
 }
 
 .work-title {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     margin-bottom: 10px;
     color: var(--color-primary);
     word-wrap: break-word;
-    overflow-wrap: break-word;
-    word-break: break-all;
-    hyphens: auto;
+    overflow-wrap: anywhere;
+    word-break: normal;
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    line-height: 1.5;
+    line-height: 1.6;
+    padding-right: 8px;
+    display: block;
+    writing-mode: horizontal-tb !important;
+    direction: ltr !important;
+}
+
+@media (max-width: 900px) {
+    .work-title {
+        font-size: 15px;
+        line-height: 1.5;
+        padding-right: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .work-title {
+        font-size: 14px;
+        line-height: 1.5;
+        padding-right: 3px;
+    }
 }
 
 .work-location {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--color-text-light);
     margin-bottom: 15px;
     word-wrap: break-word;
-    overflow-wrap: break-word;
-    word-break: break-all;
+    overflow-wrap: anywhere;
+    word-break: normal;
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
+    line-height: 1.6;
+    display: block;
+    writing-mode: horizontal-tb !important;
+    direction: ltr !important;
+}
+
+@media (max-width: 900px) {
+    .work-location {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 600px) {
+    .work-location {
+        font-size: 10px;
+    }
 }
 
 .work-description {
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 13px;
+    line-height: 1.7;
     color: var(--color-text-light);
     word-wrap: break-word;
-    overflow-wrap: break-word;
-    word-break: break-all;
-    hyphens: auto;
+    overflow-wrap: anywhere;
+    word-break: normal;
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
+    display: block;
+    writing-mode: horizontal-tb !important;
+    direction: ltr !important;
+}
+
+@media (max-width: 900px) {
+    .work-description {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 600px) {
+    .work-description {
+        font-size: 11px;
+        line-height: 1.6;
+    }
 }
 
 /* ==================== */
@@ -1350,6 +1505,10 @@ body {
     padding-bottom: 80px;
     border-bottom: 1px solid #e0e0e0;
     align-items: start;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .work-detail-card:last-child {
@@ -1389,18 +1548,35 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .work-title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
     color: var(--color-primary);
-    line-height: 1.4;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .work-location {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--color-text-light);
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.6;
 }
 
 .work-features {
@@ -1423,10 +1599,16 @@ body {
 }
 
 .work-description {
-    font-size: 15px;
-    line-height: 2;
+    font-size: 14px;
+    line-height: 1.9;
     color: var(--color-text);
     margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .work-voice {
@@ -1952,6 +2134,46 @@ textarea.form-control {
     .work-detail-card {
         grid-template-columns: 1fr;
         gap: 30px;
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .work-detail-card .work-title {
+        font-size: 20px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: anywhere !important;
+        word-break: keep-all !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        line-height: 1.5 !important;
+    }
+
+    .work-detail-card .work-location {
+        font-size: 12px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: anywhere !important;
+        word-break: keep-all !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .work-detail-card .work-description {
+        font-size: 13px !important;
+        line-height: 1.8 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: anywhere !important;
+        word-break: keep-all !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .work-detail-card .work-content {
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
     }
 
     .flow-step,
@@ -2096,36 +2318,38 @@ textarea.form-control {
         box-sizing: border-box !important;
     }
 
-    .work-title,
-    .style-title {
+    .work-card .work-title,
+    .style-card .style-title {
         font-size: 15px !important;
+        font-weight: 600 !important;
         word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        word-break: break-all !important;
-        hyphens: auto !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
         max-width: 100% !important;
         width: 100% !important;
-        line-height: 1.4 !important;
+        line-height: 1.5 !important;
         box-sizing: border-box !important;
+        padding-right: 5px !important;
+        margin-bottom: 10px !important;
     }
 
-    .work-location {
+    .work-card .work-location {
+        font-size: 11px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        line-height: 1.6 !important;
+    }
+
+    .work-card .work-description,
+    .style-card .style-description {
         font-size: 12px !important;
         word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        word-break: break-all !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .work-description,
-    .style-description {
-        font-size: 13px !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        word-break: break-all !important;
-        hyphens: auto !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
         max-width: 100% !important;
         width: 100% !important;
         line-height: 1.6 !important;
@@ -2205,6 +2429,20 @@ textarea.form-control {
 
     .step-number {
         writing-mode: horizontal-tb;
+    }
+
+    .work-detail-card .work-title {
+        font-size: 18px !important;
+        line-height: 1.5 !important;
+    }
+
+    .work-detail-card .work-location {
+        font-size: 11px !important;
+    }
+
+    .work-detail-card .work-description {
+        font-size: 12px !important;
+        line-height: 1.7 !important;
     }
 
     .timeline-item {
@@ -2313,34 +2551,35 @@ textarea.form-control {
         font-size: 14px;
     }
 
-    .work-title,
-    .style-title {
+    .work-card .work-title,
+    .style-card .style-title {
         font-size: 14px !important;
+        font-weight: 600 !important;
         word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        word-break: break-all !important;
-        hyphens: auto !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
         max-width: 100% !important;
         width: 100% !important;
-        line-height: 1.4 !important;
+        line-height: 1.5 !important;
         box-sizing: border-box !important;
-        padding: 0 !important;
+        padding-right: 3px !important;
         margin-bottom: 8px !important;
     }
 
-    .work-location {
-        font-size: 11px !important;
+    .work-card .work-location {
+        font-size: 10px !important;
         word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        word-break: break-all !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
         max-width: 100% !important;
         width: 100% !important;
         box-sizing: border-box !important;
+        line-height: 1.6 !important;
     }
 
-    .work-content,
-    .style-content {
-        padding: 12px !important;
+    .work-card .work-content,
+    .style-card .style-content {
+        padding: 15px !important;
         max-width: 100% !important;
         width: 100% !important;
         overflow: hidden !important;
@@ -2355,16 +2594,15 @@ textarea.form-control {
         box-sizing: border-box !important;
     }
 
-    .work-description,
-    .style-description {
-        font-size: 12px !important;
+    .work-card .work-description,
+    .style-card .style-description {
+        font-size: 11px !important;
         word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        word-break: break-all !important;
-        hyphens: auto !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
         max-width: 100% !important;
         width: 100% !important;
-        line-height: 1.5 !important;
+        line-height: 1.6 !important;
         box-sizing: border-box !important;
     }
 
@@ -2474,5 +2712,36 @@ textarea.form-control {
 
     .access-info {
         padding: 30px 20px;
+    }
+
+    .work-detail-card .work-title {
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+    }
+
+    .work-detail-card .work-location {
+        font-size: 10px !important;
+    }
+
+    .work-detail-card .work-description {
+        font-size: 11px !important;
+        line-height: 1.6 !important;
+    }
+
+    .work-features {
+        font-size: 11px !important;
+    }
+
+    .work-features li {
+        font-size: 11px !important;
+    }
+
+    .work-voice {
+        padding: 15px !important;
+    }
+
+    .voice-text {
+        font-size: 11px !important;
+        line-height: 1.7 !important;
     }
 }
