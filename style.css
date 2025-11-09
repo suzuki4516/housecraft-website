@@ -382,6 +382,12 @@ ul {
     order: 1;
 }
 
+.feature-item.reverse .feature-title,
+.feature-item.reverse .feature-subtitle,
+.feature-item.reverse .feature-description {
+    text-align: left !important;
+}
+
 .feature-number {
     font-size: 72px;
     font-weight: 700;
@@ -2593,6 +2599,18 @@ textarea.form-control {
         text-align: left;
     }
 
+    .feature-item.reverse .feature-content {
+        text-align: left !important;
+    }
+
+    .feature-item.reverse .feature-title,
+    .feature-item.reverse .feature-subtitle,
+    .feature-item.reverse .feature-description {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+
     .feature-item .feature-image {
         grid-column: 1 / -1;
         order: 2;
@@ -2864,6 +2882,18 @@ textarea.form-control {
     .feature-subtitle,
     .feature-description {
         text-align: left;
+    }
+
+    .feature-item.reverse .feature-content {
+        text-align: left !important;
+    }
+
+    .feature-item.reverse .feature-title,
+    .feature-item.reverse .feature-subtitle,
+    .feature-item.reverse .feature-description {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
     }
 
     .work-card .work-title,
